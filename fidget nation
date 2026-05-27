@@ -1,0 +1,91 @@
+import { useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+
+export default function FidgetNationSite() {
+  const [email, setEmail] = useState("");
+
+  return (
+    <div className="min-h-screen bg-black text-white flex flex-col">
+      {/* Hero Section */}
+      <div className="flex flex-col items-center justify-center text-center px-6 py-16">
+        <motion.img
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          src="/mnt/data/a_clean_graphic_logo_on_a_solid_black_background.png"
+          alt="Fidget Nation Logo"
+          className="w-72 md:w-96 mb-6"
+        />
+
+        <h1 className="text-4xl md:text-6xl font-bold text-lime-400 tracking-wide">
+          FIDGET NATION
+        </h1>
+
+        <p className="mt-4 text-gray-300 text-lg md:text-xl">
+          Join the Nation. Spin. Click. Fidget.
+        </p>
+
+        <Button className="mt-6 bg-lime-500 hover:bg-lime-600 text-black px-6 py-3 rounded-2xl text-lg">
+          Shop Now
+        </Button>
+      </div>
+
+      {/* Features */}
+      <div className="grid md:grid-cols-3 gap-6 px-6 py-10 max-w-6xl mx-auto">
+        <Card className="bg-zinc-900 border-zinc-800 text-center">
+          <CardContent className="p-6">
+            <h2 className="text-xl font-semibold text-lime-400">Premium Fidgets</h2>
+            <p className="text-gray-400 mt-2">
+              High-quality spinners, cubes, and sensory toys.
+            </p>
+          </CardContent>
+        </Card>
+
+        <Card className="bg-zinc-900 border-zinc-800 text-center">
+          <CardContent className="p-6">
+            <h2 className="text-xl font-semibold text-lime-400">Fast Shipping</h2>
+            <p className="text-gray-400 mt-2">
+              Delivered quickly across Australia and beyond.
+            </p>
+          </CardContent>
+        </Card>
+
+        <Card className="bg-zinc-900 border-zinc-800 text-center">
+          <CardContent className="p-6">
+            <h2 className="text-xl font-semibold text-lime-400">Community</h2>
+            <p className="text-gray-400 mt-2">
+              Join thousands of fidget fans worldwide.
+            </p>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Email Signup */}
+      <div className="bg-zinc-950 py-12 px-6 text-center">
+        <h2 className="text-2xl font-bold mb-4">Stay Updated</h2>
+        <p className="text-gray-400 mb-6">
+          Get new drops and deals first.
+        </p>
+
+        <div className="flex flex-col md:flex-row gap-3 justify-center max-w-xl mx-auto">
+          <input
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Enter your email"
+            className="px-4 py-3 rounded-xl w-full text-black"
+          />
+          <Button className="bg-lime-500 hover:bg-lime-600 text-black px-6 py-3 rounded-xl">
+            Subscribe
+          </Button>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <footer className="text-center py-6 text-gray-600 text-sm">
+        © {new Date().getFullYear()} Fidget Nation. All rights reserved.
+      </footer>
+    </div>
+  );
+}
